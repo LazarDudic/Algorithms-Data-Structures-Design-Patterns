@@ -3,8 +3,7 @@
 require_once __DIR__ . './../Classes/MinHeap.php';
 
 try {
-
-    $numbers = [37, 44, 34, 65, 26, 83, 129, 86, 9];
+    $numbers = [38, 45, 34, 66, 27, 81, 123, 83, 2];
     echo "Initial array \n" . implode("\t", $numbers) . "\n";
     $heap = new MinHeap($numbers);
     
