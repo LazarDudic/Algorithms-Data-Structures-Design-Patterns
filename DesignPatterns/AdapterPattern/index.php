@@ -1,6 +1,5 @@
 <?php
 
-
 interface Car
 {
     public function startEngine();
@@ -13,7 +12,6 @@ class BMW
         echo "BMV engine started";
     }
 }
-
 
 class BMWAdapter implements Car
 {
@@ -30,5 +28,10 @@ class BMWAdapter implements Car
     }
 }
 
+function client(Car $car) {
+    $car->startEngine();
+}
+
 $adapter = new BMWAdapter(new BMW());
-$adapter->startEngine();
+
+client($adapter);
