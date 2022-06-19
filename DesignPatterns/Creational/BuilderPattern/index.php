@@ -44,13 +44,11 @@ class MysqlQueryBuilder implements QueryBuilder {
         $this->query .= " ORDER BY " . $column . " " . strtoupper($order);
         return $this;
     }
-
+    
     public function getQuery(): string 
     {
         return $this->query;  
     }
-
-
 }
 
 $query = (new MysqlQueryBuilder())
