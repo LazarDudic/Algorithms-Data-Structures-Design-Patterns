@@ -3,7 +3,6 @@
 require_once "./StackInterface.php";
 require_once "../LinkedList/LinkedList.php";
 
-
 class Stack implements StackInterface
 {
     private $limit;

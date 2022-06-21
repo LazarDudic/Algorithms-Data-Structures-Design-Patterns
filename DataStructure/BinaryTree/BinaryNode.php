@@ -5,7 +5,8 @@ class BinaryNode {
     public $left;
     public $right;
 
-    public function __construct($data = null) {
+    public function __construct($data = null) 
+    {
         $this->data = $data;
         $this->left = null;
         $this->right = null;

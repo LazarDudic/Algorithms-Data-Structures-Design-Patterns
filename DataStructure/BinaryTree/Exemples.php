@@ -13,8 +13,8 @@ $second2 = new BinaryNode("Second-2");
 $second3 = new BinaryNode("Second-3");
 $second4 = new BinaryNode("Second-4");
 
+$final->addChildren($first1, $first2);
 $first1->addChildren($second1, $second2);
 $first2->addChildren($second3, $second4);
-$final->addChildren($first1, $first2);
 
 $tree->traverse($tree->root);
