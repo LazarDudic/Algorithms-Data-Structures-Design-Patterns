@@ -1,15 +1,13 @@
 <?php
 
-function binarySearch(array $numbers, int $neeedle): bool
+function binarySearch($numbers, $neeedle, $low, $high)
 {
-    $low = 0;
-    $high = count($numbers) - 1;
-    while ($low <= $high) {
+    if($low <= $high) {
         $mid = (int) (($low + $high) / 2);
-        if ($numbers[$mid] > $neeedle) {
-            $high = $mid - 1;
-        } else if ($numbers[$mid] < $neeedle) {
-            $low = $mid + 1;
+        if($neeedle > $numbers[$mid]) {
+            return binarySearch($numbers, $neeedle, $mid + 1, $high);
+        } else if($neeedle < $numbers[$mid]) {
+            return binarySearch($numbers, $neeedle, $low, $mid - 1);
         } else {
             return true;
         }
@@ -17,10 +15,9 @@ function binarySearch(array $numbers, int $neeedle): bool
     return false;
 }
 
-$numbers = range(1, 200, 3);
-
-$number = 196;
-if (binarySearch($numbers, $number)) {
+$numbers = range(1, 200, 1);
+$number = 178;
+if (binarySearch($numbers, $number, 0, count($numbers) - 1)) {
     echo "$number Found \n";
 } else {
     echo "$number Not found \n";
