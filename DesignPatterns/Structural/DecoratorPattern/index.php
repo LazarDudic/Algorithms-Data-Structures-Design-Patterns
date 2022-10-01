@@ -29,7 +29,7 @@ class VehicleFeature implements Vehicle
 
 class NavigationSystem extends VehicleFeature
 {
-    public function price(): string
+    public function price()
     {
         return 300 + parent::price();
     }
@@ -37,7 +37,7 @@ class NavigationSystem extends VehicleFeature
 
 class HeatedSeats extends VehicleFeature
 {
-    public function price(): string
+    public function price()
     {
         return 150 + parent::price();
     }
@@ -45,7 +45,7 @@ class HeatedSeats extends VehicleFeature
 
 function getTotal(Vehicle $vehicle)
 {
-    echo "Total: $" . $vehicle->price();
+    echo "Total: $" . $vehicle->price(). "\n";
 }
 
 $audi = new Audi();
