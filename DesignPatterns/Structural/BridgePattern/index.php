@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 interface Formatter
 {
@@ -31,13 +32,9 @@ class HtmlFormatter implements Formatter
 
 abstract class Service
 {
-    protected Formatter $implementation;
-    public function __construct(Formatter $implementation)
-    {
-        $this->implementation = $implementation;
-    }
+    public function __construct(protected Formatter $implementation){}
 
-    final public function setImplementation(Formatter $printer)
+    final public function setImplementation(Formatter $printer): void
     {
         $this->implementation = $printer;
     }

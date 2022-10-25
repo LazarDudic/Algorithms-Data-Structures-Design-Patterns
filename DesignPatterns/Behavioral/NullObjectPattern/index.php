@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 interface User
 {
     public function role(): string;

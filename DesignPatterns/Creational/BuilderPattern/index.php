@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 interface QueryBuilder
 {
@@ -9,7 +9,6 @@ interface QueryBuilder
     public function orderBy(string $column, string $order): QueryBuilder;
     public function getQuery(): string;
 }
-
 
 class MysqlQueryBuilder implements QueryBuilder {
 

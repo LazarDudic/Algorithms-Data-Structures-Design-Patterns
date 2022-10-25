@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 interface Vehicle
 {
@@ -14,12 +15,7 @@ class Audi implements Vehicle
 
 class VehicleFeature implements Vehicle
 {
-    protected $vehicle;
-
-    public function __construct(Vehicle $vehicle)
-    {
-        $this->vehicle = $vehicle;
-    }
+    public function __construct(protected Vehicle $vehicle){}
 
     public function price()
     {

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 interface Door
 {
     public function getDescription();
@@ -40,7 +42,6 @@ class Carpenter implements DoorFittingExpert
         echo 'I can only fit wooden doors';
     }
 }
-
 
 interface DoorFactory
 {

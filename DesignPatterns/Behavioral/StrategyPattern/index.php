@@ -1,20 +1,16 @@
 <?php
+declare(strict_types=1);
 
 class Superhero
 {
-    private $weapon;
+    public function __construct(private WeaponStrategy $weapon) {}
 
-    public function __construct(WeaponStrategy $weapon)
+    public function setWeaponStrategy(WeaponStrategy $weapon): void
     {
         $this->weapon = $weapon;
     }
 
-    public function setWeaponStrategy(WeaponStrategy $weapon)
-    {
-        $this->weapon = $weapon;
-    }
-
-    public function attack()
+    public function attack(): void
     {
         $this->weapon->doDammage();
     }
@@ -22,13 +18,13 @@ class Superhero
 
 interface WeaponStrategy
 {
-    public function doDammage();
+    public function doDammage(): void;
 }
 
 
 class AxStrategy implements WeaponStrategy
 {
-    public function doDammage()
+    public function doDammage(): void
     {
         echo '30%' . "\n"; 
     }
@@ -36,7 +32,7 @@ class AxStrategy implements WeaponStrategy
 
 class SwordStrategy implements WeaponStrategy
 {
-    public function doDammage()
+    public function doDammage(): void
     {
         echo '20%' . "\n";
     }
@@ -44,7 +40,7 @@ class SwordStrategy implements WeaponStrategy
 
 class KnifeStrategy implements WeaponStrategy
 {
-    public function doDammage()
+    public function doDammage(): void
     {
         echo '10%' . "\n";
     }

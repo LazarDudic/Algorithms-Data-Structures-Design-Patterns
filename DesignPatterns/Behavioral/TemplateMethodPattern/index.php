@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 abstract class SocialUser
 {
     final public function register()
@@ -11,7 +13,7 @@ abstract class SocialUser
 
     abstract protected function extractData($userData);
 
-    abstract protected function getUrl();
+    abstract protected function getUrl(): string;
 
     protected function callApi()
     {
@@ -31,7 +33,7 @@ abstract class SocialUser
 
 class FacebookUser extends SocialUser
 {
-    protected function getUrl()
+    protected function getUrl(): string
     {
         return "https://www.facebook.com/api/";
     }
@@ -49,7 +51,7 @@ class GoogleUser extends SocialUser
         return 'Register GoogleUser using this url: ' . $this->getUrl(); //Overide 
     }
 
-    protected function getUrl()
+    protected function getUrl(): string
     {
         return "https://www.google.com/api/";
     }
@@ -62,7 +64,7 @@ class GoogleUser extends SocialUser
 
 class TwitterUser extends SocialUser
 {
-    protected function getUrl()
+    protected function getUrl(): string
     {
         return "https://www.twitter.com/api/";
     }

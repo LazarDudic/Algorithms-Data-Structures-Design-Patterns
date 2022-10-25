@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 interface Car
 {
@@ -15,12 +16,7 @@ class BMW
 
 class BMWAdapter implements Car
 {
-    private BMW $adaptee;
-
-    public function __construct(BMW $adaptee)
-    {
-        $this->adaptee = $adaptee;
-    }
+    public function __construct(private BMW $adaptee){}
 
     public function startEngine()
     {

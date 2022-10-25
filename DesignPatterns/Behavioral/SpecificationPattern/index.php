@@ -1,19 +1,14 @@
 <?php
-
+declare(strict_types=1);
 class User
 {
-    private $age;
-    private $amountOwned;
-    private $verefied;
+    public function __construct(
+        private int $age, 
+        private $amountOwned, 
+        private bool $verefied
+    ){}
  
-    public function __construct($age, $amountOwned, $verefied)
-    {
-        $this->age = $age;
-        $this->amountOwned = $amountOwned;
-        $this->verefied = $verefied;
-    }
- 
-    public function getAge()
+    public function getAge(): int
     {
         return $this->age;
     }
@@ -23,7 +18,7 @@ class User
         return $this->amountOwned;
     }
 
-    public function isVerefied()
+    public function isVerefied(): bool
     {
         return $this->verefied;
     }
@@ -45,13 +40,8 @@ class UserIsAdultSpecification implements SpecificationInterface
 }
 
 class UserHasEnoughMoneySpecification implements SpecificationInterface
-{
-    private $saleAmount;
- 
-    public function __construct(float $saleAmount)
-    {
-        $this->saleAmount = $saleAmount;
-    }
+{ 
+    public function __construct(private $saleAmount){}
  
     public function isSatisfiedBy(User $user): bool
     {
@@ -70,19 +60,15 @@ class UserIsVerifiedSpecification implements SpecificationInterface
 class Car
 {
     private $specifications;
-    private $price;
 
-    public function __construct($price)
-    {
-        $this->price = $price;
-    }
+    public function __construct(private $price){}
 
     public function price()
     {
         return $this->price;
     }
  
-    public function add(SpecificationInterface $specification)
+    public function add(SpecificationInterface $specification): Car
     {
         $this->specifications[] = $specification;
  

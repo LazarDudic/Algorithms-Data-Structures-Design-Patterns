@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 interface BarInterface
 {
@@ -36,14 +37,9 @@ class BarProxy implements BarInterface
 
 class Customer
 {
-    private $age;
+    public function __construct(protected int $age){}
 
-    public function __construct($age)
-    {
-        $this->age = $age;
-    }
-
-    public function getAge()
+    public function getAge(): int
     {
         return $this->age;
     }
